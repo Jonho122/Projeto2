@@ -1,3 +1,1 @@
-import pysimplegui as sg 
-
-def 
+import pysimplegui as sg
