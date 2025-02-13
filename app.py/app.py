@@ -14,6 +14,17 @@ def criar_tarefa():
 #criação da tarefa
 janela = criar_tarefa()
 while True:
-    event, values = janela.read()
-    if event == sg.WIN_CLOSED:
+   event, values = janela.read()
+   if event == sg.WIN_CLOSED:
         break
+   elif event == "Adicionar":
+        janela.extend_layout(janela['container'], [[sg.Checkbox(""), sg.Input("")]])
+   elif event == "Resetar":
+      janela.close()
+      janela = criar_tarefa()
+
+'''
+adicionar a opção de salvar as tarefas em um arquivo
+adicionar uma opção para editar as tarefas
+modo de abrir tarefas em detalhes
+'''
