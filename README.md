@@ -1,1 +1,1 @@
-# Projeto2
+Projeto feito no intuito de obter conhecimento de programção, com estudo no uso do PySimpleGui e o MySQL Workbench (não entendi bem), no codigo, existe a maior parte das possibilidades de escrever, editar, adicionar e resetar as tarefas, deixando a desejar apenas na função de botão da descrição da primeira linha (Não nenhuma forma de fazer sem que de um erro)
