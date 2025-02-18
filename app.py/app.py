@@ -15,13 +15,17 @@ def criar_tarefa():
     return sg.Window("Todo List", layout=layout, finalize=True)
 
 
-def mostrar_descricao(descricao):
+
+def mostrar_descricao(index, descricao):
     layout = [
-        [sg.Text(descricao)],
-        [sg.Button('OK')]
+        [sg.Text('Descrição da Tarefa')],
+        [sg.InputText(default_text=descricao, key='descricao')],
+        [sg.Button('Salvar', key=f'salvar_{index}')]
     ]
-    window = sg.Window("Descrição da Tarefa", layout)
+    window = sg.Window('Descrição da Tarefa', layout)
     event, values = window.read()
+    if event == f'salvar_{index}':
+        descricao_tarefas[index] = values['descricao']
     window.close()
 
 
@@ -52,9 +56,14 @@ while True:
         if event.startswith('desc_'):
             index = int(event.split('_')[1])
             descricao = descricao_tarefas[index]
-            mostrar_descricao(descricao)
+            mostrar_descricao(index, descricao)
+   # Atualizar a lista de tarefas e descrições caso tenham sido editadas
+    for i in range(len(tarefas)):
+        if f'tarefa_{i}' in values:
+            tarefas[i] = values[f'tarefa_{i}']
 
 janela.close()
+
 '''
 Fazer com que o código acima funcione com o banco de dados MySQL
 Fazer a descrição primária poder ser editada com input e nos outros tambem
